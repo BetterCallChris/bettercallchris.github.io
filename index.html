@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Blog</title>
+    
+    <!-- Google Fonts for typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Lobster&display=swap" rel="stylesheet">
+    
+    <!-- Link to the CSS file -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="wrapper">
+    <header>
+        <h1>My Blog</h1>
+    </header>
+
+    <div class="container" id="articles-container">
+        <!-- Articles will be dynamically loaded here -->
+    </div>
+
+    <div id="pagination-controls" class="pagination">
+        <!-- Pagination buttons will be dynamically loaded here -->
+    </div>
+
+    <footer>
+        <p>My Blog &copy; 2024</p>
+    </footer>
+</div>
+<script>
+// Updated hardcoded articles with title, summary, and body
+const articles = [
+    { 
+        "title": "First Article", 
+        "summary": "This is a brief summary of the first article. It's a great article about web development.", 
+        "body": "This is the detailed content of the first article. Here, you will find insights into web development and much more." 
+    },
+    { 
+        "title": "Second Article", 
+        "summary": "This is a brief summary of the second article. It covers the basics of HTML, CSS, and JavaScript.", 
+        "body": "In this article, we delve deeper into HTML, CSS, and JavaScript, exploring their fundamental concepts and applications." 
+    },
+    { 
+        "title": "Third Article", 
+        "summary": "This article is all about the future of web technologies and what's coming next.", 
+        "body": "The future of web technologies is bright, with advancements in AI and machine learning paving the way for innovative solutions." 
+    },
+    { 
+        "title": "Fourth Article", 
+        "summary": "Learn about responsive web design and how to make websites look great on all devices.", 
+        "body": "Responsive design is crucial in today's world. This article covers the techniques and strategies you need to implement it." 
+    },
+    { 
+        "title": "Fifth Article", 
+        "summary": "This article talks about the importance of accessibility in web design and how to implement it.", 
+        "body": "Accessibility is a vital aspect of web design. In this article, we explore the principles of creating accessible websites." 
+    },
+    { 
+        "title": "Sixth Article", 
+        "summary": "An in-depth guide to CSS Flexbox and Grid for creating flexible layouts.", 
+        "body": "Flexbox and Grid are powerful tools in CSS. Learn how to use them effectively in your web projects." 
+    },
+    { 
+        "title": "Seventh Article", 
+        "summary": "Discover the world of JavaScript frameworks like React, Vue, and Angular.", 
+        "body": "JavaScript frameworks have revolutionized web development. This article provides an overview of the most popular ones." 
+    },
+    { 
+        "title": "Eighth Article", 
+        "summary": "The role of back-end development with Node.js and Express explained.", 
+        "body": "Back-end development is essential for dynamic websites. This article discusses Node.js and Express in detail." 
+    },
+    { 
+        "title": "Ninth Article", 
+        "summary": "Learn the basics of APIs, REST, and how to integrate them into your website.", 
+        "body": "APIs are crucial for modern web applications. Explore how to use RESTful APIs effectively in this article." 
+    },
+    { 
+        "title": "Tenth Article", 
+        "summary": "This article focuses on website performance optimization techniques.", 
+        "body": "Website performance is key to user satisfaction. Learn the best optimization techniques to enhance your site's speed." 
+    },
+    { 
+        "title": "Eleventh Article", 
+        "summary": "An introduction to version control systems like Git and their importance.", 
+        "body": "Version control is vital for collaboration in software development. This article introduces Git and its functionalities." 
+    },
+    { 
+        "title": "Twelfth Article", 
+        "summary": "The future of web development: AI, machine learning, and quantum computing.", 
+        "body": "As technology evolves, so does web development. Explore how AI and machine learning will shape the future." 
+    }
+];
+
+// Settings for pagination
+const articlesPerPage = 3;
+let currentPage = 1;
+
+// Function to display the articles for the current page
+function displayArticles(page) {
+    const articlesContainer = document.getElementById('articles-container');
+    articlesContainer.innerHTML = '';  // Clear existing articles
+
+    const startIndex = (page - 1) * articlesPerPage;
+    const endIndex = startIndex + articlesPerPage;
+    const paginatedArticles = articles.slice(startIndex, endIndex);
+
+    paginatedArticles.forEach((article, index) => {
+        const articleDiv = document.createElement('div');
+        articleDiv.classList.add('article');
+
+        const title = document.createElement('h2');
+
+        // Create a link for each article
+        const link = document.createElement('a');
+        link.href = `article.html?id=${startIndex + index}`; // Use index to pass article ID
+        link.textContent = article.title;
+        link.classList.add('article-link');
+
+        title.appendChild(link);
+
+        const summary = document.createElement('p');
+        summary.textContent = article.summary; // Display the summary instead of the full content
+
+        articleDiv.appendChild(title);
+        articleDiv.appendChild(summary);
+        articlesContainer.appendChild(articleDiv);
+    });
+}
+
+// Function to create and display pagination buttons
+function setupPagination(totalArticles) {
+    const paginationControls = document.getElementById('pagination-controls');
+    paginationControls.innerHTML = '';  // Clear existing pagination buttons
+
+    const totalPages = Math.ceil(totalArticles / articlesPerPage);
+
+    for (let i = 1; i <= totalPages; i++) {
+        const button = document.createElement('button');
+        button.textContent = i;
+        button.classList.add('pagination-btn');
+        if (i === currentPage) button.classList.add('active');  // Highlight current page
+        button.addEventListener('click', function() {
+            currentPage = i;
+            displayArticles(currentPage);
+            setupPagination(articles.length);  // Re-setup pagination to refresh active state
+        });
+        paginationControls.appendChild(button);
+    }
+}
+
+// Initial load
+document.addEventListener('DOMContentLoaded', function() {
+    displayArticles(currentPage);  // Load the first page of articles
+    setupPagination(articles.length);  // Setup pagination based on total articles
+});
+</script>
+
+</body>
+</html>

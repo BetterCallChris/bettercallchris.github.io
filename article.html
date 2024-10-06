@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Article - My Blog</title>
+    
+    <!-- Google Fonts for typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Lobster&display=swap" rel="stylesheet">
+    
+    <!-- Link to the CSS file -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="wrapper">
+        <header>
+            <h1>My Blog</h1>
+        </header>
+
+        <div class="container" id="article-content">
+            <!-- Article content will be dynamically loaded here -->
+        </div>
+
+        <footer>
+            <p>My Blog &copy; 2024</p>
+        </footer>
+
+    </div>
+<script>
+// Updated hardcoded articles with title, summary, and body
+const articles = [
+    { 
+        "title": "First Article", 
+        "summary": "This is a brief summary of the first article. It's a great article about web development.", 
+        "body": "This is the detailed content of the first article. Here, you will find insights into web development and much more." 
+    },
+    { 
+        "title": "Second Article", 
+        "summary": "This is a brief summary of the second article. It covers the basics of HTML, CSS, and JavaScript.", 
+        "body": "In this article, we delve deeper into HTML, CSS, and JavaScript, exploring their fundamental concepts and applications." 
+    },
+    { 
+        "title": "Third Article", 
+        "summary": "This article is all about the future of web technologies and what's coming next.", 
+        "body": "The future of web technologies is bright, with advancements in AI and machine learning paving the way for innovative solutions." 
+    },
+    { 
+        "title": "Fourth Article", 
+        "summary": "Learn about responsive web design and how to make websites look great on all devices.", 
+        "body": "Responsive design is crucial in today's world. This article covers the techniques and strategies you need to implement it." 
+    },
+    { 
+        "title": "Fifth Article", 
+        "summary": "This article talks about the importance of accessibility in web design and how to implement it.", 
+        "body": "Accessibility is a vital aspect of web design. In this article, we explore the principles of creating accessible websites." 
+    },
+    { 
+        "title": "Sixth Article", 
+        "summary": "An in-depth guide to CSS Flexbox and Grid for creating flexible layouts.", 
+        "body": "Flexbox and Grid are powerful tools in CSS. Learn how to use them effectively in your web projects." 
+    },
+    { 
+        "title": "Seventh Article", 
+        "summary": "Discover the world of JavaScript frameworks like React, Vue, and Angular.", 
+        "body": "JavaScript frameworks have revolutionized web development. This article provides an overview of the most popular ones." 
+    },
+    { 
+        "title": "Eighth Article", 
+        "summary": "The role of back-end development with Node.js and Express explained.", 
+        "body": "Back-end development is essential for dynamic websites. This article discusses Node.js and Express in detail." 
+    },
+    { 
+        "title": "Ninth Article", 
+        "summary": "Learn the basics of APIs, REST, and how to integrate them into your website.", 
+        "body": "APIs are crucial for modern web applications. Explore how to use RESTful APIs effectively in this article." 
+    },
+    { 
+        "title": "Tenth Article", 
+        "summary": "This article focuses on website performance optimization techniques.", 
+        "body": "Website performance is key to user satisfaction. Learn the best optimization techniques to enhance your site's speed." 
+    },
+    { 
+        "title": "Eleventh Article", 
+        "summary": "An introduction to version control systems like Git and their importance.", 
+        "body": "Version control is vital for collaboration in software development. This article introduces Git and its functionalities." 
+    },
+    { 
+        "title": "Twelfth Article", 
+        "summary": "The future of web development: AI, machine learning, and quantum computing.", 
+        "body": "As technology evolves, so does web development. Explore how AI and machine learning will shape the future." 
+    }
+];
+
+// Function to get URL parameters
+function getQueryParameter(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+}
+
+// Function to display the article based on the ID
+function displayArticle() {
+    const articleId = getQueryParameter('id');
+    const articleContentDiv = document.getElementById('article-content');
+
+    if (articleId && articles[articleId]) {
+        const article = articles[articleId];
+
+        // Create and append article title
+        const title = document.createElement('h2');
+        title.textContent = article.title;
+
+        // Create and append article summary
+        const summary = document.createElement('p');
+        summary.textContent = article.summary;
+
+        // Create and append article body
+        const body = document.createElement('p');
+        body.textContent = article.body;
+
+        articleContentDiv.appendChild(title);
+        articleContentDiv.appendChild(summary);
+        articleContentDiv.appendChild(body);
+    } else {
+        // Handle case where no valid article is found
+        articleContentDiv.innerHTML = '<p>Sorry, the article you are looking for does not exist.</p>';
+    }
+}
+
+// Initial load
+document.addEventListener('DOMContentLoaded', displayArticle);
+</script>
+
+</body>
+</html>

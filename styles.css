@@ -1,0 +1,111 @@
+/* General Styles */
+html, body {
+    height: 100%; /* Ensure body takes full height */
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Flexbox Container for Full Height */
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Make the wrapper take at least full height */
+}
+
+/* Header Styles */
+header {
+    background: #333;
+    color: #fff;
+    padding: 10px 20px; /* Reduced padding */
+    text-align: center;
+}
+
+/* Container Styles */
+.container {
+    max-width: 900px; /* Increased max-width for larger panel */
+    margin: 20px auto; /* Centered horizontally */
+    padding: 0; /* Remove padding for better fit */
+    background: #fff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    flex-grow: 1; /* Allow the container to grow and take available space */
+    display: flex;
+    flex-direction: column; /* Stack articles vertically */
+}
+
+/* Article Styles */
+.article {
+    flex-grow: 1; /* Allow each article to take up available space */
+    margin: 10px; /* Small margin between articles */
+    padding: 20px; /* Padding for article cards */
+    border: 1px solid #ddd; /* Added border */
+    border-radius: 8px; /* Rounded corners */
+    background: #fafafa; /* Light background for articles */
+    transition: box-shadow 0.3s ease; /* Smooth hover effect */
+    display: flex;
+    flex-direction: column; /* Stack title and body vertically */
+}
+
+.article-body {
+    margin-top: 15px; /* Space between title and body */
+}
+
+/* Article Header Styles */
+.article h2 {
+    margin: 0 0 10px;
+}
+
+.article p {
+    margin: 0 0 15px;
+    color: #555; /* Slightly darker color for summary */
+}
+
+/* Pagination Styles */
+.pagination {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.pagination-btn {
+    background: #333;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease; /* Smooth transition */
+}
+
+.pagination-btn:hover {
+    background: #007BFF; /* Change color on hover */
+}
+
+.pagination-btn.active {
+    background: #007BFF; /* Active button color */
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 10px 20px; /* Reduced padding */
+    background: #333;
+    color: #fff;
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+    }
+
+    .pagination-btn {
+        padding: 5px 10px;
+    }
+
+    header, footer {
+        padding: 8px 10px; /* Reduced padding for smaller screens */
+    }
+}
