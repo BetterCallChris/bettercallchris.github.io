@@ -48,6 +48,18 @@ header {
     flex-direction: column; /* Stack title and body vertically */
 }
 
+.standAlonearticle {
+    /* flex-grow: 1; Allow each article to take up available space */
+    /* margin: 10px; Small margin between articles */
+    padding: 20px; /* Padding for article cards */
+    border: 1px solid #ddd; /* Added border */
+    border-radius: 8px; /* Rounded corners */
+    background: #fafafa; /* Light background for articles */
+    /* transition: box-shadow 0.3s ease; Smooth hover effect */
+    display: flex;
+    flex-direction: column; /*Stack title and body vertically */
+}
+
 .article-body {
     margin-top: 15px; /* Space between title and body */
 }

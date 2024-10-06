@@ -106,6 +106,7 @@ function displayArticle() {
 
     if (articleId && articles[articleId]) {
         const article = articles[articleId];
+        articleContentDiv.classList.add('standAlonearticle');
 
         // Create and append article title
         const title = document.createElement('h2');
