@@ -18,14 +18,18 @@ html, body {
 header {
     background: #333;
     color: #fff;
-    padding: 10px 20px; /* Reduced padding */
     text-align: center;
+    font-size: 20px;}
+
+header h1 {
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
 }
 
 /* Container Styles */
 .container {
-    max-width: 900px; /* Increased max-width for larger panel */
-    margin: 20px auto; /* Centered horizontally */
+    max-width: 100%; /* Increased max-width for larger panel */
+    margin: 1% 20%; /* Centered horizontally */
     padding: 0; /* Remove padding for better fit */
     background: #fff;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -74,6 +78,39 @@ header {
     color: #555; /* Slightly darker color for summary */
 }
 
+.article-date {
+    font-style: italic;
+    color: gray;
+    margin-bottom: 5px;
+}
+
+.article-date-view {
+    font-style: italic;
+    color: gray;
+    margin-bottom: 10px;
+}
+
+
+
+/* Smaller back button styling */
+.back-btn {
+    background-color: #3498db; /* Blue background */
+    color: white;              /* White text */
+    border: none;              /* Remove border */
+    padding: 8px 16px;         /* Smaller padding */
+    border-radius: 4px;        /* Slightly rounded corners */
+    font-size: 14px;           /* Smaller font size */
+    cursor: pointer;           /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth hover transition */
+    margin-top: 20px;          /* Small margin at the top */
+    align-self: flex-end;      /* Align the button to the right */
+    margin-bottom: 10px;       /* Bottom margin to create space from the edge */
+}
+
+.back-btn:hover {
+    background-color: #2980b9; /* Darker blue on hover */
+}
+
 /* Pagination Styles */
 .pagination {
     text-align: center;
@@ -102,10 +139,11 @@ header {
 /* Footer Styles */
 footer {
     text-align: center;
-    padding: 10px 20px; /* Reduced padding */
+    padding: 1px 0; 
     background: #333;
     color: #fff;
 }
+
 
 /* Responsive Styles */
 @media (max-width: 600px) {
@@ -118,6 +156,6 @@ footer {
     }
 
     header, footer {
-        padding: 8px 10px; /* Reduced padding for smaller screens */
+        padding: 1px 0; /* Reduced padding for smaller screens */
     }
 }
