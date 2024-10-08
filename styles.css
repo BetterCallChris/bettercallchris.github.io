@@ -10,12 +10,13 @@ html, body {
 /* Flexbox Container for Full Height */
 .wrapper {
     display: flex;
+    background-image: url('ai.png'); 
     flex-direction: column;
     min-height: 100vh; /* Make the wrapper take at least full height */
 }
 
 /* Header Styles */
-header {
+/* header {
     background: #333;
     color: #fff;
     text-align: center;
@@ -24,6 +25,34 @@ header {
 header h1 {
     margin-top: 0.5%;
     margin-bottom: 0.5%;
+} */
+
+header {
+    position: relative; /* Positioning context for the pseudo-element */
+    z-index: 1; /* Ensures the header is above the background */
+}
+
+header::before {
+    content: ''; /* Required for the pseudo-element */
+    position: absolute; /* Positioned relative to the header */
+    top: 0; /* Aligns to the top */
+    left: 0; /* Aligns to the left */
+    right: 0; /* Aligns to the right */
+    bottom: 0; /* Aligns to the bottom */
+    background: url('ai.png'); /* Set your background image */
+    background-size: cover; /* Ensures the image covers the entire area */
+    filter: blur(10px); /* Adjust the blur level here */
+    z-index: -1; /* Places the background behind the header content */
+}
+
+h1 {
+    position: relative; /* Makes sure the text is above the blurred background */
+    color: white; /* Adjust text color for contrast */
+    padding: 0.5%; /* Adds some padding around the text */
+    text-align: center; /* Centers the text */
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
+    font-size: 250%;
 }
 
 /* Container Styles */
@@ -39,6 +68,12 @@ header h1 {
     flex-direction: column; /* Stack articles vertically */
 }
 
+#articles-container {
+    background-color: rgba(78, 76, 76, 0.4); /* Fully transparent */
+    /* You can adjust the padding, margins, etc., as needed */
+}
+
+
 /* Article Styles */
 .article {
     flex-grow: 1; /* Allow each article to take up available space */
@@ -46,7 +81,7 @@ header h1 {
     padding: 20px; /* Padding for article cards */
     border: 1px solid #ddd; /* Added border */
     border-radius: 8px; /* Rounded corners */
-    background: #fafafa; /* Light background for articles */
+    background: #e9e7e7; /* Light background for articles */
     transition: box-shadow 0.3s ease; /* Smooth hover effect */
     display: flex;
     flex-direction: column; /* Stack title and body vertically */
@@ -58,7 +93,7 @@ header h1 {
     padding: 20px; /* Padding for article cards */
     border: 1px solid #ddd; /* Added border */
     border-radius: 8px; /* Rounded corners */
-    background: #fafafa; /* Light background for articles */
+    background: #e9e7e7; /* Light background for articles */
     /* transition: box-shadow 0.3s ease; Smooth hover effect */
     display: flex;
     flex-direction: column; /*Stack title and body vertically */
@@ -78,6 +113,13 @@ header h1 {
     color: #555; /* Slightly darker color for summary */
 }
 
+.article div {
+    margin: 0 0 15px;
+    color: #555; /* Slightly darker color for summary */
+}
+
+
+
 .article-date {
     font-style: italic;
     color: gray;
@@ -94,22 +136,26 @@ header h1 {
 
 /* Smaller back button styling */
 .back-btn {
-    background-color: #3498db; /* Blue background */
-    color: white;              /* White text */
+    background-color: #05C2F0; /* Blue background */
+    color: rgb(255, 255, 255);              /* White text */
     border: none;              /* Remove border */
-    padding: 8px 16px;         /* Smaller padding */
+    padding: 6px 10px;         /* Smaller padding */
     border-radius: 4px;        /* Slightly rounded corners */
-    font-size: 14px;           /* Smaller font size */
     cursor: pointer;           /* Pointer cursor on hover */
     transition: background-color 0.3s ease; /* Smooth hover transition */
-    margin-top: 20px;          /* Small margin at the top */
-    align-self: flex-end;      /* Align the button to the right */
-    margin-bottom: 10px;       /* Bottom margin to create space from the edge */
+    align-self: flex-start;      /* Align the button to the right */
+    font-size: 100%; /* Adjust font size */
 }
 
 .back-btn:hover {
-    background-color: #2980b9; /* Darker blue on hover */
+    background-color: #00ebfc; /* Darker blue on hover */
 }
+
+.back-btn i {
+    font-size: 20px; /* Adjust icon size */
+    font-weight: bold; /* Ensure icon is bold */
+}
+
 
 /* Pagination Styles */
 .pagination {
@@ -129,11 +175,11 @@ header h1 {
 }
 
 .pagination-btn:hover {
-    background: #007BFF; /* Change color on hover */
+    background: #05C2F0; /* Change color on hover */
 }
 
 .pagination-btn.active {
-    background: #007BFF; /* Active button color */
+    background: #05C2F0; /* Active button color */
 }
 
 /* Footer Styles */
