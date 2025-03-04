@@ -21,11 +21,10 @@ html, body {
     color: #fff;
     text-align: center;
     font-size: 20px;}
-
-header h1 {
-    margin-top: 0.5%;
-    margin-bottom: 0.5%;
-} */
+*/
+/* header h1 {
+    margin-top: 5px;
+}  */
 
 header {
     position: relative; /* Positioning context for the pseudo-element */
@@ -48,7 +47,7 @@ header::before {
 h1 {
     position: relative; /* Makes sure the text is above the blurred background */
     color: white; /* Adjust text color for contrast */
-    padding: 0.5%; /* Adds some padding around the text */
+    padding: 0; /* Adds some padding around the text */
     text-align: center; /* Centers the text */
     margin-top: 0.5%;
     margin-bottom: 0.5%;
@@ -58,7 +57,7 @@ h1 {
 /* Container Styles */
 .container {
     max-width: 100%; /* Increased max-width for larger panel */
-    margin: 1% 20%; /* Centered horizontally */
+    margin: 0.51% 20%; /* Centered horizontally */
     padding: 0; /* Remove padding for better fit */
     background: #fff;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -160,7 +159,7 @@ h1 {
 /* Pagination Styles */
 .pagination {
     text-align: center;
-    margin: 20px 0;
+    margin-bottom:3px;
 }
 
 .pagination-btn {
