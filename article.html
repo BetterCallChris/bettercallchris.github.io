@@ -7,133 +7,283 @@
     <title>Article - Syntax & Synapses</title>
     
     <!-- Google Fonts for typography -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <!-- Link to the CSS file -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="theme-toggle">
+        <button id="theme-toggle-btn" aria-label="Toggle dark mode">
+            <i class="fas fa-moon"></i>
+        </button>
+    </div>
 
     <div class="wrapper">
         <header>
-            <h1>Syntax & Synapses</h1>
+            <div class="header-content">
+                <h1>Syntax & Synapses</h1>
+                <p class="tagline">Exploring the Frontiers of AI and Technology</p>
+            </div>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Topics</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </nav>
         </header>
 
         <div class="container" id="article-content">
             <!-- Article content will be dynamically loaded here -->
-
-            <!-- <button id="back-button" class="back-btn">&larr;</button> -->
-            <button id="back-button" class="back-btn"><i class="fas fa-arrow-left" style="font-weight: bold;"></i></button>
-
+            <button id="back-button" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Articles</button>
+            
+            <div class="article-progress-container">
+                <div class="article-progress-bar" id="article-progress"></div>
+            </div>
+            
+            <div class="article-wrapper">
+                <!-- Article will be inserted here -->
+            </div>
+            
+            <div class="article-actions">
+                <div class="share-buttons">
+                    <span>Share this article:</span>
+                    <button class="share-btn twitter"><i class="fab fa-twitter"></i></button>
+                    <button class="share-btn facebook"><i class="fab fa-facebook-f"></i></button>
+                    <button class="share-btn linkedin"><i class="fab fa-linkedin-in"></i></button>
+                </div>
+            </div>
         </div>
 
-        <!-- <footer>
-            <p>Neural Quests &copy; 2024</p>
-        </footer> -->
-
+        <footer>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Syntax & Synapses</h3>
+                    <p>Exploring the intersection of technology, AI, and human potential.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <div class="social-links">
+                        <a href="https://www.chrisarseniou.com" target="_blank" aria-label="Website"><i class="fas fa-globe"></i></a>
+                        <a href="https://www.linkedin.com/in/christos-arseniou-383383190/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/ChrisArseniou" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Syntax & Synapses. All rights reserved.</p>
+            </div>
+        </footer>
     </div>
+
 <script>
 // Updated hardcoded articles with title, summary, and body
 const articles = [
     {
-        "title": "AI Breakthroughs in 2025: New Findings Shaping the Future",
-        "summary": "2025 has seen major advances in AI, from autonomous agents to hyper-personalization and medical breakthroughs. Discover how these findings are transforming industries, healthcare, and ethical challenges.",
-        "body": "<p>2025 has been a transformative year for artificial intelligence (AI), with breakthroughs redefining its capabilities, applications, and ethical considerations. Researchers have made strides in areas like natural language processing (NLP), generative AI, and autonomous systems, pushing the boundaries of what machines can do. These advances have sparked both excitement and debate, as society grapples with the implications of ever-more sophisticated AI.</p> <p>1. <strong>Autonomous AI Agents: Beyond Human Supervision</strong></p> <p>One of the most significant developments in 2025 has been the rise of fully autonomous AI agents, sometimes referred to as <strong>auto-GPTs</strong> or <strong>auto-agents</strong>. Unlike traditional AI systems that rely on human input and oversight, these agents can set their own objectives and execute complex tasks independently. This leap in autonomy is enabled by improvements in <strong>multi-agent collaboration</strong> and <strong>reinforcement learning</strong>, allowing AI agents to work together seamlessly and adapt to unforeseen challenges.</p> <p>2. <strong>Hyper-Personalized AI: Tailoring Solutions to the Individual</strong></p> <p>Personalization in AI has reached new heights in 2025. Modern AI systems can now craft highly customized solutions, from personalized healthcare regimens to learning curriculums tailored to individual needs. This shift is driven by improvements in <strong>contextual learning models</strong> and <strong>user-data interpretation</strong>, allowing AI to continuously adjust its behavior based on real-time feedback.</p> <p>3. <strong>AI and Creativity: Expanding Human Imagination</strong></p> <p>The evolution of <strong>generative AI</strong> continues to be one of the most compelling stories of 2025. These systems, which can generate text, images, music, and even video, have become powerful creative collaborators. What’s new in 2025 is the <strong>multi-modal generative AI</strong>, which can combine and translate between different forms of media seamlessly, offering full multimedia packages for creative projects.</p> <p>4. <strong>Neurosymbolic AI: Merging Logic with Learning</strong></p> <p>2025 has seen renewed interest in <strong>neurosymbolic AI</strong>, which combines the data-driven strengths of neural networks with the logical reasoning of symbolic AI. This approach has led to more explainable AI systems, particularly important in fields like <strong>legal AI</strong>, where transparency and accountability are crucial.</p> <p>5. <strong>AI in Medicine: Moving from Prediction to Prescription</strong></p> <p>AI’s impact on medicine has deepened significantly in 2025. The ability to predict disease based on genetic data and lifestyle has been around for years, but AI is now moving from prediction to <strong>prescribing specific treatments</strong>. AI-driven drug discovery and <strong>bio-AI interfaces</strong> like brain-computer interfaces (BCIs) are transforming healthcare by offering more personalized and effective treatments.</p> <p>6. <strong>Ethics and AI: Confronting New Dilemmas</strong></p> <p>As AI becomes more autonomous and integrated into daily life, ethical concerns are growing. Issues like <strong>data privacy</strong>, <strong>accountability</strong>, and <strong>algorithmic bias</strong> are at the forefront of discussions. While progress is being made with <strong>fair AI</strong>, these challenges remain pressing as AI continues to evolve.</p> <p>7. <strong>AI’s Role in Environmental Sustainability</strong></p> <p>AI is playing a key role in <strong>environmental sustainability</strong>, from optimizing energy grids to managing water resources and improving conservation efforts. In 2025, AI models are being used to predict climate patterns and support sustainable agriculture, helping policymakers make informed decisions about the future of the planet.</p> <p>As we move forward, balancing the power of AI with responsible oversight will be crucial to ensuring its benefits are broadly shared.</p>",
-        "date": "10-01-2025"
+    "title": "AI Breakthroughs in 2025: New Findings Shaping the Future",
+    "summary": "2025 has seen major advances in AI, from autonomous agents to hyper-personalization and medical breakthroughs. Discover how these findings are transforming industries, healthcare, and ethical challenges.",
+    "body": "<p>2025 has been a transformative year for artificial intelligence (AI), with breakthroughs redefining its capabilities, applications, and ethical considerations. Researchers have made strides in areas like natural language processing (NLP), generative AI, and autonomous systems, pushing the boundaries of what machines can do. These advances have sparked both excitement and debate, as society grapples with the implications of ever-more sophisticated AI.</p> <p>1. <strong>Autonomous AI Agents: Beyond Human Supervision</strong></p> <p>One of the most significant developments in 2025 has been the rise of fully autonomous AI agents, sometimes referred to as <strong>auto-GPTs</strong> or <strong>auto-agents</strong>. Unlike traditional AI systems that rely on human input and oversight, these agents can set their own objectives and execute complex tasks independently. This leap in autonomy is enabled by improvements in <strong>multi-agent collaboration</strong> and <strong>reinforcement learning</strong>, allowing AI agents to work together seamlessly and adapt to unforeseen challenges.</p> <p>2. <strong>Hyper-Personalized AI: Tailoring Solutions to the Individual</strong></p> <p>Personalization in AI has reached new heights in 2025. Modern AI systems can now craft highly customized solutions, from personalized healthcare regimens to learning curriculums tailored to individual needs. This shift is driven by improvements in <strong>contextual learning models</strong> and <strong>user-data interpretation</strong>, allowing AI to continuously adjust its behavior based on real-time feedback.</p> <p>3. <strong>AI and Creativity: Expanding Human Imagination</strong></p> <p>The evolution of <strong>generative AI</strong> continues to be one of the most compelling stories of 2025. These systems, which can generate text, images, music, and even video, have become powerful creative collaborators. What's new in 2025 is the <strong>multi-modal generative AI</strong>, which can combine and translate between different forms of media seamlessly, offering full multimedia packages for creative projects.</p> <p>4. <strong>Neurosymbolic AI: Merging Logic with Learning</strong></p> <p>2025 has seen renewed interest in <strong>neurosymbolic AI</strong>, which combines the data-driven strengths of neural networks with the logical reasoning of symbolic AI. This approach has led to more explainable AI systems, particularly important in fields like <strong>legal AI</strong>, where transparency and accountability are crucial.</p> <p>5. <strong>AI in Medicine: Moving from Prediction to Prescription</strong></p> <p>AI's impact on medicine has deepened significantly in 2025. The ability to predict disease based on genetic data and lifestyle has been around for years, but AI is now moving from prediction to <strong>prescribing specific treatments</strong>. AI-driven drug discovery and <strong>bio-AI interfaces</strong> like brain-computer interfaces (BCIs) are transforming healthcare by offering more personalized and effective treatments.</p> <p>6. <strong>Ethics and AI: Confronting New Dilemmas</strong></p> <p>As AI becomes more autonomous and integrated into daily life, ethical concerns are growing. Issues like <strong>data privacy</strong>, <strong>accountability</strong>, and <strong>algorithmic bias</strong> are at the forefront of discussions. While progress is being made with <strong>fair AI</strong>, these challenges remain pressing as AI continues to evolve.</p> <p>7. <strong>AI's Role in Environmental Sustainability</strong></p> <p>AI is playing a key role in <strong>environmental sustainability</strong>, from optimizing energy grids to managing water resources and improving conservation efforts. In 2025, AI models are being used to predict climate patterns and support sustainable agriculture, helping policymakers make informed decisions about the future of the planet.</p> <p>As we move forward, balancing the power of AI with responsible oversight will be crucial to ensuring its benefits are broadly shared.</p>",
+    "date": "10-01-2025",
+    "readTime": "8 min read",
+    "category": "AI Research"
     },
     {
         "title": "Large Language Models in 2025",
         "summary": "As we progress into 2025, Large Language Models (LLMs) are at the forefront of AI advancements, enhancing applications across various sectors while also raising important ethical considerations.",
-        "body": "<p>As we move further into 2025, the landscape of artificial intelligence and natural language processing continues to evolve, with Large Language Models (LLMs) at the forefront of this transformation. These models have made significant strides in various applications, from enhancing user interaction to driving business efficiencies.</p>\n\n<h2>Key Developments in LLM Technology</h2>\n<p>In 2025, several key advancements have been observed in LLM technology:</p>\n<ul>\n    <li><strong>Increased Model Efficiency:</strong> New architectures and training techniques have emerged, allowing models to be more efficient in their use of computational resources. This means quicker response times and the ability to run on less powerful hardware.</li>\n    <li><strong>Enhanced Context Understanding:</strong> Models are now better at grasping context and intent, enabling more nuanced and accurate responses. This is crucial for applications in customer support and personal assistants.</li>\n    <li><strong>Integration of Multimodal Inputs:</strong> LLMs are increasingly capable of processing and generating not just text but also images, audio, and video. This opens up new possibilities for applications in areas such as education and entertainment.</li>\n</ul>\n\n<h2>Applications of LLMs</h2>\n<p>The applications of LLMs have expanded significantly, impacting various sectors:</p>\n<h3>1. Education</h3>\n<p>LLMs are being used to create personalized learning experiences, offering tutoring and support tailored to individual students’ needs. They can provide instant feedback on assignments and help clarify complex concepts.</p>\n\n<h3>2. Healthcare</h3>\n<p>In healthcare, LLMs assist in patient interactions, providing information and support while helping professionals analyze vast amounts of medical literature to find relevant information quickly.</p>\n\n<h3>3. Content Creation</h3>\n<p>Content creators are leveraging LLMs to generate ideas, draft articles, and even create scripts, significantly enhancing productivity and creativity in the writing process.</p>\n\n<h2>Ethical Considerations and Challenges</h2>\n<p>As LLMs become more prevalent, ethical considerations around their use also grow. Key challenges include:</p>\n<ul>\n    <li><strong>Bias and Fairness:</strong> Ensuring that models do not propagate biases present in the training data is a critical concern that developers are actively addressing.</li>\n    <li><strong>Privacy:</strong> Protecting user data and ensuring that models do not inadvertently disclose sensitive information is essential for maintaining trust.</li>\n    <li><strong>Accountability:</strong> As LLMs take on more significant roles in decision-making, determining accountability for errors or misuse becomes increasingly important.</li>\n</ul>\n\n<p>Large Language Models in 2025 are not just tools but integral components of various sectors, enhancing capabilities and driving innovation. As the technology continues to advance, it is crucial to balance progress with ethical considerations to ensure a responsible and beneficial integration into society.</p>",
-        "date": "01-09-2025"
+        "body": "<p>As we move further into 2025, the landscape of artificial intelligence and natural language processing continues to evolve, with Large Language Models (LLMs) at the forefront of this transformation. These models have made significant strides in various applications, from enhancing user interaction to driving business efficiencies.</p>\n\n<h2>Key Developments in LLM Technology</h2>\n<p>In 2025, several key advancements have been observed in LLM technology:</p>\n<ul>\n    <li><strong>Increased Model Efficiency:</strong> New architectures and training techniques have emerged, allowing models to be more efficient in their use of computational resources. This means quicker response times and the ability to run on less powerful hardware.</li>\n    <li><strong>Enhanced Context Understanding:</strong> Models are now better at grasping context and intent, enabling more nuanced and accurate responses. This is crucial for applications in customer support and personal assistants.</li>\n    <li><strong>Integration of Multimodal Inputs:</strong> LLMs are increasingly capable of processing and generating not just text but also images, audio, and video. This opens up new possibilities for applications in areas such as education and entertainment.</li>\n</ul>\n\n<h2>Applications of LLMs</h2>\n<p>The applications of LLMs have expanded significantly, impacting various sectors:</p>\n<h3>1. Education</h3>\n<p>LLMs are being used to create personalized learning experiences, offering tutoring and support tailored to individual students' needs. They can provide instant feedback on assignments and help clarify complex concepts.</p>\n\n<h3>2. Healthcare</h3>\n<p>In healthcare, LLMs assist in patient interactions, providing information and support while helping professionals analyze vast amounts of medical literature to find relevant information quickly.</p>\n\n<h3>3. Content Creation</h3>\n<p>Content creators are leveraging LLMs to generate ideas, draft articles, and even create scripts, significantly enhancing productivity and creativity in the writing process.</p>\n\n<h2>Ethical Considerations and Challenges</h2>\n<p>As LLMs become more prevalent, ethical considerations around their use also grow. Key challenges include:</p>\n<ul>\n    <li><strong>Bias and Fairness:</strong> Ensuring that models do not propagate biases present in the training data is a critical concern that developers are actively addressing.</li>\n    <li><strong>Privacy:</strong> Protecting user data and ensuring that models do not inadvertently disclose sensitive information is essential for maintaining trust.</li>\n    <li><strong>Accountability:</strong> As LLMs take on more significant roles in decision-making, determining accountability for errors or misuse becomes increasingly important.</li>\n</ul>\n\n<p>Large Language Models in 2025 are not just tools but integral components of various sectors, enhancing capabilities and driving innovation. As the technology continues to advance, it is crucial to balance progress with ethical considerations to ensure a responsible and beneficial integration into society.</p>",
+        "date": "02-01-2025",
+        "readTime": "6 min read",
+        "category": "Language Models"
     },
     {
         "title": "The Best AI Experiment of 2024",
         "summary": "In 2024, one of the most groundbreaking AI experiments was the development of a collaborative AI system that successfully harnessed the power of human intuition and creativity, setting a new standard for AI-human collaboration.",
-        "body": "<p>As the field of artificial intelligence continues to evolve, 2024 witnessed an exceptional experiment that captured the attention of researchers, developers, and the public alike. This groundbreaking initiative aimed to explore the synergy between human intuition and AI capabilities, resulting in unprecedented advancements in collaborative AI.</p>\n\n<h2>The Experiment Overview</h2>\n<p>The experiment, dubbed <strong>“AI Co-Creator,”</strong> was designed to assess how AI can augment human creativity in various domains, including art, music, and literature. Researchers assembled a diverse team of artists, musicians, and writers to interact with an advanced AI system capable of understanding and generating creative content.</p>\n\n<h2>Methodology</h2>\n<p>The AI Co-Creator experiment employed a unique methodology:</p>\n<ul>\n    <li><strong>Interactive Workshops:</strong> Participants engaged in collaborative workshops where they brainstormed ideas alongside the AI. The AI system provided real-time suggestions and enhancements to their creative processes.</li>\n    <li><strong>Iterative Feedback:</strong> After initial creations, participants submitted their work to the AI for analysis. The AI then offered constructive feedback, helping participants refine their projects.</li>\n    <li><strong>Cross-Disciplinary Collaboration:</strong> The experiment emphasized cross-disciplinary teamwork, enabling artists, musicians, and writers to collaborate and leverage the strengths of both human and AI creativity.</li>\n</ul>\n\n<h2>Key Findings</h2>\n<p>The results of the AI Co-Creator experiment were remarkable:</p>\n<ul>\n    <li><strong>Enhanced Creativity:</strong> Participants reported a significant boost in their creative output, with many expressing that the AI pushed them to explore ideas they hadn’t considered before.</li>\n    <li><strong>Improved Skill Development:</strong> The iterative feedback process allowed participants to hone their skills more effectively, leading to noticeable improvements in their work.</li>\n    <li><strong>Deeper Human-AI Connection:</strong> The experiment fostered a sense of partnership between humans and AI, highlighting the potential for AI to be seen as a collaborator rather than just a tool.</li>\n</ul>\n\n<h2>Implications for the Future</h2>\n<p>The success of the AI Co-Creator experiment has far-reaching implications:</p>\n<ul>\n    <li><strong>AI in Creative Industries:</strong> This experiment opens new avenues for integrating AI into creative fields, suggesting that AI can significantly enhance artistic expression and innovation.</li>\n    <li><strong>Redefining Collaboration:</strong> The findings challenge traditional notions of creativity, promoting a model where AI and humans work together, each contributing their unique strengths.</li>\n    <li><strong>Future Research Directions:</strong> The experiment sets the stage for further exploration of AI’s role in enhancing human creativity, encouraging researchers to investigate how to refine AI systems for even better collaborative outcomes.</li>\n</ul>\n\n</p>",
-        "date": "14-12-2024"
+        "body": "<p>As the field of artificial intelligence continues to evolve, 2024 witnessed an exceptional experiment that captured the attention of researchers, developers, and the public alike. This groundbreaking initiative aimed to explore the synergy between human intuition and AI capabilities, resulting in unprecedented advancements in collaborative AI.</p>\n\n<h2>The Experiment Overview</h2>\n<p>The experiment, dubbed <strong>AI Co-Creator,</strong> was designed to assess how AI can augment human creativity in various domains, including art, music, and literature. Researchers assembled a diverse team of artists, musicians, and writers to interact with an advanced AI system capable of understanding and generating creative content.</p>\n\n<h2>Methodology</h2>\n<p>The AI Co-Creator experiment employed a unique methodology:</p>\n<ul>\n    <li><strong>Interactive Workshops:</strong> Participants engaged in collaborative workshops where they brainstormed ideas alongside the AI. The AI system provided real-time suggestions and enhancements to their creative processes.</li>\n    <li><strong>Iterative Feedback:</strong> After initial creations, participants submitted their work to the AI for analysis. The AI then offered constructive feedback, helping participants refine their projects.</li>\n    <li><strong>Cross-Disciplinary Collaboration:</strong> The experiment emphasized cross-disciplinary teamwork, enabling artists, musicians, and writers to collaborate and leverage the strengths of both human and AI creativity.</li>\n</ul>\n\n<h2>Key Findings</h2>\n<p>The results of the AI Co-Creator experiment were remarkable:</p>\n<ul>\n    <li><strong>Enhanced Creativity:</strong> Participants reported a significant boost in their creative output, with many expressing that the AI pushed them to explore ideas they hadn't considered before.</li>\n    <li><strong>Improved Skill Development:</strong> The iterative feedback process allowed participants to hone their skills more effectively, leading to noticeable improvements in their work.</li>\n    <li><strong>Deeper Human-AI Connection:</strong> The experiment fostered a sense of partnership between humans and AI, highlighting the potential for AI to be seen as a collaborator rather than just a tool.</li>\n</ul>\n\n<h2>Implications for the Future</h2>\n<p>The success of the AI Co-Creator experiment has far-reaching implications:</p>\n<ul>\n    <li><strong>AI in Creative Industries:</strong> This experiment opens new avenues for integrating AI into creative fields, suggesting that AI can significantly enhance artistic expression and innovation.</li>\n    <li><strong>Redefining Collaboration:</strong> The findings challenge traditional notions of creativity, promoting a model where AI and humans work together, each contributing their unique strengths.</li>\n    <li><strong>Future Research Directions:</strong> The experiment sets the stage for further exploration of AI's role in enhancing human creativity, encouraging researchers to investigate how to refine AI systems for even better collaborative outcomes.</li>\n</ul>\n\n</p>",
+        "date": "14-12-2024",
+        "readTime": "5 min read",
+        "category": "AI Experiments"
     },
     {
         "title": "How AI Has Made Daily Life Easier in 2024",
         "summary": "In 2024, artificial intelligence continues to simplify various aspects of daily life, from enhancing productivity to providing personalized experiences, significantly improving the quality of life for many individuals.",
         "body": "<p>As we navigate through 2024, the influence of artificial intelligence (AI) on our daily lives has become increasingly pronounced. From smart home devices to personal assistants, AI technologies are streamlining tasks and enhancing convenience in various aspects of everyday living.</p>\n\n<h2>1. Smart Home Automation</h2>\n<p>AI has revolutionized the way we interact with our living spaces. Smart home devices powered by AI allow users to control lighting, heating, and security systems remotely, providing greater comfort and energy efficiency. For example:</p>\n<ul>\n    <li><strong>Automated Lighting:</strong> Smart lighting systems can adjust brightness based on the time of day or occupancy, saving energy and enhancing ambiance.</li>\n    <li><strong>Smart Thermostats:</strong> These devices learn user preferences and automatically adjust heating and cooling settings to optimize comfort and reduce energy costs.</li>\n</ul>\n\n<h2>2. Enhanced Productivity Tools</h2>\n<p>AI-driven productivity tools are helping individuals manage their time and tasks more efficiently. Applications like smart calendars and task managers offer features such as:</p>\n<ul>\n    <li><strong>Intelligent Scheduling:</strong> AI can analyze participants' availability and suggest optimal meeting times, reducing the back-and-forth often associated with scheduling.</li>\n    <li><strong>Task Prioritization:</strong> AI tools can prioritize tasks based on deadlines and user preferences, helping individuals focus on what matters most.</li>\n</ul>\n\n<h2>3. Personalized Recommendations</h2>\n<p>AI enhances our shopping and entertainment experiences by providing tailored recommendations. This personalization improves decision-making and saves time:</p>\n<ul>\n    <li><strong>Shopping Assistance:</strong> E-commerce platforms utilize AI algorithms to suggest products based on past purchases, preferences, and trends, making online shopping more convenient.</li>\n    <li><strong>Content Recommendations:</strong> Streaming services and social media platforms leverage AI to curate content that aligns with user interests, enhancing user engagement.</li>\n</ul>\n\n<h2>4. Improved Communication</h2>\n<p>AI has transformed the way we communicate and connect with others. Features such as:</p>\n<ul>\n    <li><strong>Language Translation:</strong> AI-powered translation apps facilitate real-time communication across language barriers, making global interactions seamless.</li>\n    <li><strong>Virtual Assistants:</strong> Personal AI assistants like Siri, Alexa, and Google Assistant help users manage their schedules, set reminders, and answer queries, making everyday tasks easier.</li>\n</ul>\n\n<h2>5. Health and Wellness</h2>\n<p>AI technologies are playing a crucial role in health and wellness, offering tools that promote better living:</p>\n<ul>\n    <li><strong>Fitness Tracking:</strong> Wearable devices equipped with AI monitor physical activity, sleep patterns, and overall health, providing personalized insights and recommendations.</li>\n    <li><strong>Telehealth Services:</strong> AI-driven telemedicine platforms enable users to consult healthcare professionals remotely, improving access to medical advice and services.</li>\n</ul>\n\n<h2>Conclusion</h2>\n<p>In 2024, artificial intelligence continues to transform our daily lives, simplifying tasks, enhancing productivity, and providing personalized experiences. As AI technology evolves, its integration into everyday activities promises to make life even easier and more efficient, paving the way for a future where we can focus more on what truly matters.</p>",
-        "date": "30-11-2024"
+        "date": "30-11-2024",
+        "readTime": "7 min read",
+        "category": "AI Applications"
     },
     {
         "title": "The Emerging Career of Prompt Engineering",
         "summary": "This year, prompt engineering has emerged as a crucial skill in the AI landscape, focusing on optimizing interactions between humans and AI systems to enhance the effectiveness of large language models.",
         "body": "<p>As artificial intelligence continues to evolve, the role of prompt engineering has gained prominence in 2024. This emerging career focuses on crafting effective prompts to facilitate productive interactions between humans and AI systems, especially in the context of large language models (LLMs).</p>\n\n<h2>What is Prompt Engineering?</h2>\n<p>Prompt engineering involves designing and optimizing input queries or prompts to elicit the best possible responses from AI models. This discipline combines linguistic expertise with a deep understanding of AI behavior, making it essential for various applications, including content creation, data analysis, and customer service.</p>\n\n<h2>Why is Prompt Engineering Important?</h2>\n<p>The importance of prompt engineering in 2024 can be attributed to several factors:</p>\n<ul>\n    <li><strong>Improved AI Performance:</strong> Well-crafted prompts can significantly enhance the quality of AI-generated responses, ensuring that users receive accurate and relevant information.</li>\n    <li><strong>Efficient Use of AI Resources:</strong> Effective prompts minimize the computational resources required for AI operations, leading to faster response times and reduced costs.</li>\n    <li><strong>Bridging the Knowledge Gap:</strong> Prompt engineers play a vital role in making AI systems more accessible to non-technical users by translating complex AI capabilities into understandable queries.</li>\n</ul>\n\n<h2>Skills Required for Prompt Engineering</h2>\n<p>To excel in prompt engineering, professionals should possess a diverse skill set:</p>\n<ul>\n    <li><strong>Language Proficiency:</strong> A strong command of language is essential for crafting clear and effective prompts that guide AI responses.</li>\n    <li><strong>Understanding AI Models:</strong> Familiarity with how various AI models function, including their strengths and limitations, is crucial for optimizing prompts.</li>\n    <li><strong>Analytical Thinking:</strong> Prompt engineers must be able to analyze AI outputs critically and iterate on prompts to improve results continuously.</li>\n    <li><strong>Creativity:</strong> Innovative thinking is important for developing unique prompts that can yield unexpected and valuable insights from AI.</li>\n</ul>\n\n<h2>Career Opportunities in Prompt Engineering</h2>\n<p>The rise of prompt engineering has led to various career opportunities:</p>\n<ul>\n    <li><strong>AI Product Development:</strong> Companies are seeking prompt engineers to refine AI tools and applications, ensuring that users can interact with them effectively.</li>\n    <li><strong>Content Creation:</strong> Professionals in this field are in demand for crafting engaging content and marketing materials using AI-assisted tools.</li>\n    <li><strong>Data Analysis:</strong> Prompt engineers can enhance data analysis processes by formulating queries that maximize the utility of AI-driven analytics platforms.</li>\n</ul>\n\n<h2>Future of Prompt Engineering</h2>\n<p>The future of prompt engineering appears promising as AI continues to integrate into various sectors. With advancements in AI technology, the demand for skilled prompt engineers is expected to grow, creating opportunities for professionals to shape how humans and AI collaborate.</p>\n\n</p>",
-        "date": "28-11-2024"
+        "date": "28-11-2024",
+        "readTime": "5 min read",
+        "category": "AI Careers"
     },
     {
         "title": "The Development Space in Cryptocurrency in 2024",
         "summary": "In 2024, the cryptocurrency space continues to evolve with innovations in blockchain scalability, decentralized finance (DeFi), and regulatory frameworks, paving the way for new opportunities and challenges in the industry.",
         "body": "<p>The cryptocurrency space in 2024 is witnessing rapid development across multiple fronts. As blockchain technology matures, innovations in decentralized finance (DeFi), security, and regulatory frameworks are shaping the future of this transformative industry. Developers and blockchain engineers are at the center of these advancements, playing a critical role in building the infrastructure that powers the global crypto ecosystem.</p>\n\n<h2>Key Areas of Development in Cryptocurrency</h2>\n<p>Several key areas are driving development in the cryptocurrency space this year:</p>\n<ul>\n    <li><strong>Blockchain Scalability:</strong> One of the biggest challenges in blockchain development is scalability. In 2024, new layer-2 solutions like rollups and sharding are being integrated to improve transaction speeds and reduce fees across popular networks like Ethereum and Bitcoin.</li>\n    <li><strong>Decentralized Finance (DeFi) Expansion:</strong> DeFi platforms have continued to grow, with developers building more complex and interoperable protocols. Innovations in DeFi include liquidity pools, decentralized exchanges (DEXs), and lending platforms, providing financial services without intermediaries.</li>\n    <li><strong>Interoperability Solutions:</strong> Developers are focusing on enhancing interoperability between different blockchain networks. Cross-chain bridges and interoperability protocols are allowing assets and data to move seamlessly between platforms, making decentralized applications (dApps) more versatile.</li>\n</ul>\n\n<h2>Developer Tools and Technologies</h2>\n<p>Developers working in the cryptocurrency space now have access to a variety of tools and frameworks that simplify the creation of blockchain applications:</p>\n<ul>\n    <li><strong>Smart Contract Platforms:</strong> Ethereum remains the most widely used platform for smart contract development, but other networks like Solana, Cardano, and Polkadot are gaining traction due to their unique features such as higher transaction throughput and lower fees.</li>\n    <li><strong>Blockchain-as-a-Service (BaaS):</strong> Platforms like Hyperledger and AWS Blockchain allow developers to build, deploy, and manage blockchain applications more easily, offering scalability and integrated tools for enterprise-level adoption.</li>\n    <li><strong>Zero-Knowledge Proofs (ZKPs):</strong> Zero-knowledge technologies are gaining attention for enhancing privacy and security. ZKPs enable transactions to be verified without revealing sensitive data, and developers are integrating this into DeFi, NFTs, and other crypto applications.</li>\n</ul>\n\n<h2>Regulatory Developments</h2>\n<p>As the cryptocurrency industry grows, so does the importance of regulation. In 2024, developers are increasingly focused on building solutions that comply with emerging regulatory standards:</p>\n<ul>\n    <li><strong>Compliance with KYC/AML:</strong> Developers are building systems to ensure compliance with Know Your Customer (KYC) and Anti-Money Laundering (AML) regulations, integrating these into decentralized platforms to ensure they meet international standards.</li>\n    <li><strong>Central Bank Digital Currencies (CBDCs):</strong> Governments worldwide are exploring the development of CBDCs, and developers are working on frameworks that support both traditional cryptocurrencies and digital fiat currencies.</li>\n    <li><strong>Security and Auditing:</strong> With regulatory scrutiny increasing, smart contract auditing and security testing have become critical. Specialized auditing firms and automated tools are now being used to ensure the integrity of code and prevent exploits.</li>\n</ul>\n\n<h2>Challenges in the Development Space</h2>\n<p>Despite the progress, developers in the cryptocurrency space face several challenges:</p>\n<ul>\n    <li><strong>Scalability vs. Decentralization:</strong> Achieving both high scalability and decentralization remains a tough problem. While solutions like layer-2 protocols help with scalability, they sometimes compromise decentralization, and developers must find a balance.</li>\n    <li><strong>Security Risks:</strong> The cryptocurrency space continues to attract bad actors. Security vulnerabilities in smart contracts and exchanges still lead to hacks, and ensuring robust security remains a top priority.</li>\n    <li><strong>Regulatory Uncertainty:</strong> The evolving nature of cryptocurrency regulation means developers must stay ahead of compliance issues while ensuring that their platforms remain viable in different jurisdictions.</li>\n</ul>\n\n</p>",
-        "date": "16-11-2024"
+        "date": "16-11-2024",
+        "readTime": "8 min read",
+        "category": "Cryptocurrency"
     },
     {
         "title": "Artificial Intelligence in Banking Systems in 2024",
         "summary": "In 2024, artificial intelligence is transforming the banking industry by enhancing fraud detection, personalizing customer service, and streamlining operations, bringing greater efficiency and security to financial institutions.",
-        "body": "<p>Artificial intelligence (AI) continues to reshape the banking sector in 2024. From improving customer experience to enhancing security, AI-powered systems are revolutionizing how financial institutions operate. The integration of AI in banking systems is helping banks reduce costs, detect fraud, and provide personalized financial services to customers at unprecedented levels of efficiency.</p>\n\n<h2>Key Applications of AI in Banking</h2>\n<p>AI is being used in several critical areas across the banking sector, driving both operational efficiency and innovation:</p>\n<ul>\n    <li><strong>Fraud Detection and Risk Management:</strong> AI and machine learning algorithms are used to analyze vast amounts of transaction data in real time, identifying patterns and anomalies that may indicate fraudulent activity. These systems adapt quickly to new types of fraud, making them more effective than traditional rule-based systems.</li>\n    <li><strong>Customer Service Automation:</strong> AI-driven chatbots and virtual assistants are increasingly being used to handle customer inquiries. These systems can answer frequently asked questions, assist with transactions, and resolve issues without the need for human intervention, reducing wait times and improving service availability.</li>\n    <li><strong>Personalized Financial Products:</strong> AI helps banks analyze customer data to offer personalized financial products and services. By understanding a customer’s spending habits, saving patterns, and investment preferences, banks can tailor credit offers, savings plans, and investment advice that better meet individual needs.</li>\n</ul>\n\n<h2>How AI Enhances Operational Efficiency</h2>\n<p>Beyond customer-facing solutions, AI is streamlining internal operations within banks:</p>\n<ul>\n    <li><strong>Automating Back-Office Processes:</strong> AI-driven automation is improving efficiency in back-office operations such as loan processing, compliance checks, and data entry. By automating these repetitive tasks, banks can reduce errors and speed up services.</li>\n    <li><strong>Credit Scoring and Underwriting:</strong> Traditional credit scoring methods rely on historical data, but AI systems can analyze a wider range of factors, such as real-time income data or alternative financial indicators, to assess creditworthiness more accurately. This allows banks to approve loans for a broader range of clients while minimizing risk.</li>\n    <li><strong>Regulatory Compliance:</strong> AI technologies help banks keep up with evolving regulations by automating compliance monitoring. These systems can flag potential regulatory breaches, helping banks avoid penalties and maintain compliance more effectively.</li>\n</ul>\n\n<h2>AI and Security in Banking</h2>\n<p>Security is one of the most important aspects of banking, and AI is playing a critical role in this area:</p>\n<ul>\n    <li><strong>Biometric Authentication:</strong> Many banks are adopting AI-driven biometric authentication systems, such as facial recognition, fingerprint scanning, and voice recognition, to verify customer identities more securely during transactions.</li>\n    <li><strong>Behavioral Analytics:</strong> AI can track and analyze customer behavior, such as login patterns, transaction habits, and device usage. If an unusual or suspicious activity is detected, AI systems can trigger additional security measures or freeze accounts to prevent unauthorized access.</li>\n</ul>\n\n<h2>Challenges and Considerations</h2>\n<p>Despite its benefits, AI implementation in banking also comes with challenges:</p>\n<ul>\n    <li><strong>Data Privacy:</strong> Banks must ensure that customer data used by AI systems is protected in compliance with strict privacy regulations like GDPR. Balancing the use of customer data to offer personalized services while maintaining privacy remains a delicate task.</li>\n    <li><strong>Ethical AI Use:</strong> Bias in AI algorithms is a growing concern. Banks need to ensure that AI systems make fair decisions, particularly when it comes to credit scoring and loan approvals, to avoid discrimination against certain demographics.</li>\n    <li><strong>Integration with Legacy Systems:</strong> Many banks still operate on outdated infrastructure, which can make integrating modern AI solutions challenging. Ensuring smooth integration while maintaining the stability of core banking functions is a key hurdle.</li>\n</ul>\n\n<h2>The Future of AI in Banking</h2>\n<p>As AI technology continues to advance, its role in the banking industry is likely to grow even more significant:</p>\n<ul>\n    <li><strong>Predictive Analytics:</strong> AI-driven predictive analytics will allow banks to forecast financial trends, customer behaviors, and market shifts more accurately, helping them make data-driven decisions.</li>\n    <li><strong>Fully Autonomous Banking:</strong> The future could see the rise of fully autonomous banking systems, where AI handles everything from customer service to complex financial planning, further reducing the need for human intervention.</li>\n    <li><strong>Blockchain Integration:</strong> AI may also be used in conjunction with blockchain technologies to create more secure, transparent, and efficient banking ecosystems, particularly for cross-border transactions and asset management.</li>\n</ul>\n\n</p>",
-        "date": "29-10-2024"
+        "body": "<p>Artificial intelligence (AI) continues to reshape the banking sector in 2024. From improving customer experience to enhancing security, AI-powered systems are revolutionizing how financial institutions operate. The integration of AI in banking systems is helping banks reduce costs, detect fraud, and provide personalized financial services to customers at unprecedented levels of efficiency.</p>\n\n<h2>Key Applications of AI in Banking</h2>\n<p>AI is being used in several critical areas across the banking sector, driving both operational efficiency and innovation:</p>\n<ul>\n    <li><strong>Fraud Detection and Risk Management:</strong> AI and machine learning algorithms are used to analyze vast amounts of transaction data in real time, identifying patterns and anomalies that may indicate fraudulent activity. These systems adapt quickly to new types of fraud, making them more effective than traditional rule-based systems.</li>\n    <li><strong>Customer Service Automation:</strong> AI-driven chatbots and virtual assistants are increasingly being used to handle customer inquiries. These systems can answer frequently asked questions, assist with transactions, and resolve issues without the need for human intervention, reducing wait times and improving service availability.</li>\n    <li><strong>Personalized Financial Products:</strong> AI helps banks analyze customer data to offer personalized financial products and services. By understanding a customer's spending habits, saving patterns, and investment preferences, banks can tailor credit offers, savings plans, and investment advice that better meet individual needs.</li>\n</ul>\n\n<h2>How AI Enhances Operational Efficiency</h2>\n<p>Beyond customer-facing solutions, AI is streamlining internal operations within banks:</p>\n<ul>\n    <li><strong>Automating Back-Office Processes:</strong> AI-driven automation is improving efficiency in back-office operations such as loan processing, compliance checks, and data entry. By automating these repetitive tasks, banks can reduce errors and speed up services.</li>\n    <li><strong>Credit Scoring and Underwriting:</strong> Traditional credit scoring methods rely on historical data, but AI systems can analyze a wider range of factors, such as real-time income data or alternative financial indicators, to assess creditworthiness more accurately. This allows banks to approve loans for a broader range of clients while minimizing risk.</li>\n    <li><strong>Regulatory Compliance:</strong> AI technologies help banks keep up with evolving regulations by automating compliance monitoring. These systems can flag potential regulatory breaches, helping banks avoid penalties and maintain compliance more effectively.</li>\n</ul>\n\n<h2>AI and Security in Banking</h2>\n<p>Security is one of the most important aspects of banking, and AI is playing a critical role in this area:</p>\n<ul>\n    <li><strong>Biometric Authentication:</strong> Many banks are adopting AI-driven biometric authentication systems, such as facial recognition, fingerprint scanning, and voice recognition, to verify customer identities more securely during transactions.</li>\n    <li><strong>Behavioral Analytics:</strong> AI can track and analyze customer behavior, such as login patterns, transaction habits, and device usage. If an unusual or suspicious activity is detected, AI systems can trigger additional security measures or freeze accounts to prevent unauthorized access.</li>\n</ul>\n\n<h2>Challenges and Considerations</h2>\n<p>Despite its benefits, AI implementation in banking also comes with challenges:</p>\n<ul>\n    <li><strong>Data Privacy:</strong> Banks must ensure that customer data used by AI systems is protected in compliance with strict privacy regulations like GDPR. Balancing the use of customer data to offer personalized services while maintaining privacy remains a delicate task.</li>\n    <li><strong>Ethical AI Use:</strong> Bias in AI algorithms is a growing concern. Banks need to ensure that AI systems make fair decisions, particularly when it comes to credit scoring and loan approvals, to avoid discrimination against certain demographics.</li>\n    <li><strong>Integration with Legacy Systems:</strong> Many banks still operate on outdated infrastructure, which can make integrating modern AI solutions challenging. Ensuring smooth integration while maintaining the stability of core banking functions is a key hurdle.</li>\n</ul>\n\n<h2>The Future of AI in Banking</h2>\n<p>As AI technology continues to advance, its role in the banking industry is likely to grow even more significant:</p>\n<ul>\n    <li><strong>Predictive Analytics:</strong> AI-driven predictive analytics will allow banks to forecast financial trends, customer behaviors, and market shifts more accurately, helping them make data-driven decisions.</li>\n    <li><strong>Fully Autonomous Banking:</strong> The future could see the rise of fully autonomous banking systems, where AI handles everything from customer service to complex financial planning, further reducing the need for human intervention.</li>\n    <li><strong>Blockchain Integration:</strong> AI may also be used in conjunction with blockchain technologies to create more secure, transparent, and efficient banking ecosystems, particularly for cross-border transactions and asset management.</li>\n</ul>\n\n</p>",
+        "date": "29-10-2024",
+        "readTime": "7 min read",
+        "category": "Finance"
     }
 ];
 
-// Function to get URL parameters
-function getQueryParameter(param) {
+// Function to get article ID from URL
+function getArticleIdFromUrl() {
     const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get(param);
+    return urlParams.get('id');
 }
 
-// Function to display the article based on the ID
+// Function to calculate reading time
+function calculateReadingTime(text) {
+    const wordsPerMinute = 200;
+    const wordCount = text.split(/\s+/).length;
+    const readingTime = Math.ceil(wordCount / wordsPerMinute);
+    return readingTime + " min read";
+}
+
+// Function to display the article
 function displayArticle() {
-    const articleId = getQueryParameter('id');
-    const articleContentDiv = document.getElementById('article-content');
-
-    if (articleId && articles[articleId]) {
-        const article = articles[articleId];
-        articleContentDiv.classList.add('standAlonearticle');
-
-        // Create and append article title
-        const title = document.createElement('h2');
-        title.textContent = article.title;
-
-        // Create and append article date
-        const date = document.createElement('p');
-        date.textContent = `Published on: ${article.date}`;
-        date.classList.add('article-date-view'); // Add a class for date styling
-
-        // Create and append article summary
-        // const summary = document.createElement('p');
-        // summary.textContent = article.summary;
-
-        // Create and append article body
-        const body = document.createElement('div');
-        body.innerHTML = article.body;
-
-        articleContentDiv.appendChild(title);
-        articleContentDiv.appendChild(date); // Add date below the title
-        //articleContentDiv.appendChild(summary);
-        articleContentDiv.appendChild(body);
-    } else {
-        // Handle case where no valid article is found
-        articleContentDiv.innerHTML = '<p>Sorry, the article you are looking for does not exist.</p>';
+    const articleId = getArticleIdFromUrl();
+    
+    // If no article ID is provided, redirect to home page
+    if (!articleId) {
+        window.location.href = 'index.html';
+        return;
     }
+    
+    // Get the article data
+    const article = articles[articleId];
+    
+    // If article doesn't exist, show error message
+    if (!article) {
+        document.querySelector('.article-wrapper').innerHTML = `
+            <div class="error-message">
+                <h1>Article Not Found</h1>
+                <p>Sorry, the article you're looking for doesn't exist.</p>
+            </div>
+        `;
+        return;
+    }
+    
+    // Update page title
+    document.title = `${article.title} - Syntax & Synapses`;
+    
+    // Render the article
+    const articleWrapper = document.querySelector('.article-wrapper');
+    articleWrapper.innerHTML = `
+        <h1>${article.title}</h1>
+        <div class="article-meta-view">
+            <span class="category-tag">${article.category}</span>
+            <span class="article-date">${article.date}</span>
+            <span class="read-time">${article.readTime || calculateReadingTime(article.body)}</span>
+        </div>
+        <div class="article-content">
+            ${article.body}
+        </div>
+    `;
 }
 
-// Initial load
-document.addEventListener('DOMContentLoaded', displayArticle);
-
-document.addEventListener('DOMContentLoaded', function() {
-    const backButton = document.getElementById('back-button');
-    backButton.addEventListener('click', function() {
-        window.location.href = 'index.html';  // Navigate to the main page
+// Function to set up reading progress bar
+function setupReadingProgressBar() {
+    const progressBar = document.getElementById('article-progress');
+    
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight;
+        const winHeight = window.innerHeight;
+        const scrollPercent = scrollTop / (docHeight - winHeight);
+        const scrollPercentRounded = Math.round(scrollPercent * 100);
+        
+        progressBar.style.width = scrollPercentRounded + '%';
     });
+}
+
+// Function to set up theme toggle
+function setupThemeToggle() {
+    const themeToggleBtn = document.getElementById('theme-toggle-btn');
+    const icon = themeToggleBtn.querySelector('i');
+    
+    // Check for saved theme preference or use preferred color scheme
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        document.body.classList.add('dark-theme');
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+    }
+    
+    themeToggleBtn.addEventListener('click', function() {
+        document.body.classList.toggle('dark-theme');
+        
+        if (document.body.classList.contains('dark-theme')) {
+            localStorage.setItem('theme', 'dark');
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        } else {
+            localStorage.setItem('theme', 'light');
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
+        }
+    });
+}
+
+// Function to set up share buttons
+function setupShareButtons(title) {
+    const twitterBtn = document.querySelector('.share-btn.twitter');
+    const facebookBtn = document.querySelector('.share-btn.facebook');
+    const linkedinBtn = document.querySelector('.share-btn.linkedin');
+    
+    const url = window.location.href;
+    const encodedUrl = encodeURIComponent(url);
+    const encodedTitle = encodeURIComponent(title);
+    
+    twitterBtn.addEventListener('click', () => {
+        window.open(`https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`, '_blank');
+    });
+    
+    facebookBtn.addEventListener('click', () => {
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`, '_blank');
+    });
+    
+    linkedinBtn.addEventListener('click', () => {
+        window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`, '_blank');
+    });
+}
+
+// Set up back button
+function setupBackButton() {
+    document.getElementById('back-button').addEventListener('click', () => {
+        window.location.href = 'index.html';
+    });
+}
+
+// Initialize everything when the DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    displayArticle();
+    setupReadingProgressBar();
+    setupThemeToggle();
+    setupBackButton();
+    
+    // Get the article title for share buttons
+    const articleId = getArticleIdFromUrl();
+    if (articleId && articles[articleId]) {
+        setupShareButtons(articles[articleId].title);
+    }
 });
-
-
-
 </script>
 
 </body>
