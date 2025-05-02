@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>About - Syntax & Synapses</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="theme-toggle">
+        <button id="theme-toggle-btn" aria-label="Toggle dark mode">
+            <i class="fas fa-moon"></i>
+        </button>
+    </div>
+
+    <div class="wrapper">
+        <header>
+            <div class="header-content">
+                <h1>Syntax & Synapses</h1>
+                <p class="tagline">Exploring the Frontiers of AI and Technology</p>
+            </div>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html">Topics</a></li>
+                    <li><a href="about.html" class="active">About</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="container about-container">
+            <div class="about-header">
+                <h1>About Syntax & Synapses</h1>
+                <p class="about-tagline">Bridging Minds and Machines</p>
+            </div>
+
+            <section class="mission-section">
+                <div class="mission-content">
+                    <h2>Our Mission</h2>
+                    <p>At Syntax & Synapses, we're committed to demystifying artificial intelligence and making cutting-edge technology accessible to everyone.</p>
+                    <ul class="mission-list">
+                        <li><i class="fas fa-check"></i> In-depth technical analysis</li>
+                        <li><i class="fas fa-check"></i> Ethical AI advocacy</li>
+                        <li><i class="fas fa-check"></i> Practical implementation guides</li>
+                        <li><i class="fas fa-check"></i> Future technology forecasting</li>
+                    </ul>
+                    
+             
+                </div>
+                
+                <div class="ai-concepts-grid">
+                    <div class="concept-card">
+                        <i class="fas fa-robot"></i>
+                        <h3>Machine Learning</h3>
+                        <p>Algorithms that learn patterns from data</p>
+                    </div>
+                    <div class="concept-card">
+                        <i class="fas fa-brain"></i>
+                        <h3>Neural Networks</h3>
+                        <p>Biological inspiration for AI systems</p>
+                    </div>
+                    <div class="concept-card">
+                        <i class="fas fa-code"></i>
+                        <h3>Natural Language Processing</h3>
+                        <p>Human-computer language interaction</p>
+                    </div>
+                    <div class="concept-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Predictive Analytics</h3>
+                        <p>Data-driven future forecasting</p>
+                    </div>
+                    <div class="concept-card">
+                        <i class="fas fa-eye"></i>
+                        <h3>Computer Vision</h3>
+                        <p>Visual data interpretation</p>
+                    </div>
+                    <div class="concept-card">
+                        <i class="fas fa-cloud"></i>
+                        <h4>AI Infrastructure</h4>
+                        <p>Cloud-based neural architectures</p>
+                    </div>
+                </div>
+
+            </section>
+
+            <section class="values-section">
+                <h2>Core Principles</h2>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <i class="fas fa-lightbulb"></i>
+                        <h3>Innovation</h3>
+                        <p>Pushing boundaries in AI research and ethical application</p>
+                    </div>
+                    <div class="value-card">
+                        <i class="fas fa-balance-scale"></i>
+                        <h3>Integrity</h3>
+                        <p>Transparent and responsible technology reporting</p>
+                    </div>
+                    <div class="value-card">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h3>Education</h3>
+                        <p>Empowering readers through accessible knowledge</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="cta-section">
+                <div class="cta-content">
+                    <h2>Join Our Learning Community</h2>
+                    <p>Stay updated with the latest AI breakthroughs</p>
+                    
+                    <form id="subscribeForm" class="subscribe-form">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <button type="submit" class="cta-button">
+                            <span class="button-text">Subscribe</span>
+                            <div class="loading-spinner"></div>
+                        </button>
+                    </form>
+                    
+                    <div id="formMessage" class="form-message"></div>
+                </div>
+            </section>
+        </div>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Syntax & Synapses</h3>
+                    <p>Exploring the intersection of technology, AI, and human potential.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Let's Connect</h3>
+                    <div class="social-links">
+                        <a href="https://www.chrisarseniou.com" target="_blank" aria-label="Website"><i class="fas fa-globe"></i></a>
+                        <a href="https://www.linkedin.com/in/christos-arseniou-383383190/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/ChrisArseniou" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Syntax & Synapses. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- EmailJS Script -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        // Initialize EmailJS (Replace with your credentials)
+        (function() {
+            emailjs.init('iztT49zvo6EZjcYsm');
+        })();
+
+        document.getElementById('subscribeForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const form = e.target;
+            const button = form.querySelector('button[type="submit"]');
+            const message = document.getElementById('formMessage');
+            
+            button.classList.add('loading');
+            message.style.display = 'none';
+
+            const templateParams = {
+                from_name: 'Christos Arseniou',
+                from_email: 'christosarsenioudev@gmail.com',
+                to_email: form.email.value,
+                to_name: form.name.value,
+            };
+
+            emailjs.send('service_lib9n3i', 'template_55usigp', templateParams)
+                .then(() => {
+                    showMessage('Thank you for subscribing! We\'ll keep you updated.', 'success');
+                    form.reset();
+                })
+                .catch((error) => {
+                    showMessage('Subscription failed. Please try again later.', 'error');
+                    console.error('EmailJS Error:', error);
+                })
+                .finally(() => {
+                    button.classList.remove('loading');
+                });
+        });
+
+        function showMessage(text, type) {
+            const message = document.getElementById('formMessage');
+            message.textContent = text;
+            message.className = `form-message ${type}`;
+            message.style.display = 'block';
+        }
+
+        // Theme Toggle
+        function setupThemeToggle() {
+            const themeToggleBtn = document.getElementById('theme-toggle-btn');
+            const icon = themeToggleBtn.querySelector('i');
+            
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                document.body.classList.add('dark-theme');
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            }
+            
+            themeToggleBtn.addEventListener('click', function() {
+                document.body.classList.toggle('dark-theme');
+                
+                if (document.body.classList.contains('dark-theme')) {
+                    localStorage.setItem('theme', 'dark');
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                } else {
+                    localStorage.setItem('theme', 'light');
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', setupThemeToggle);
+    </script>
+</body>
+</html>

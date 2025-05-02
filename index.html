@@ -30,8 +30,22 @@
             <nav class="main-nav">
                 <ul>
                     <li><a href="#" class="active">Home</a></li>
-                    <li><a href="#">Topics</a></li>
-                    <li><a href="#">About</a></li>
+                    <li class="topics-dropdown">
+                        <a href="#" id="topics-btn">Topics</a>
+                        <div class="topics-menu" id="topics-menu">
+                            <div class="topics-menu-header">
+                                <h3>Filter by Topics</h3>
+                                <button id="clear-topics">Clear all</button>
+                            </div>
+                            <div class="topics-list" id="topics-list">
+                                <!-- Topics will be dynamically loaded here -->
+                            </div>
+                            <div class="topics-menu-footer">
+                                <button id="apply-topics">Apply Filters</button>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="about.html">About</a></li>
                 </ul>
             </nav>
         </header>
@@ -43,7 +57,10 @@
             </div>
         </div>
 
-        <div class="container" id="articles-container">
+        <div id="selected-topics-display" class="selected-topics-display" style="display: none;"></div>
+            <!-- Selected topics display will be added here -->
+
+        <div class="container" id="articles-container">            
             <!-- Articles will be dynamically loaded here -->
         </div>
 
@@ -58,7 +75,7 @@
                     <p>Exploring the intersection of technology, AI, and human potential.</p>
                 </div>
                 <div class="footer-section">
-                    <h3>Connect</h3>
+                    <h3>Let's Connect</h3>
                     <div class="social-links">
                         <a href="https://www.chrisarseniou.com" target="_blank" aria-label="Website"><i class="fas fa-globe"></i></a>
                         <a href="https://www.linkedin.com/in/christos-arseniou-383383190/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
@@ -145,18 +162,265 @@ function calculateReadingTime(text) {
 const articlesPerPage = 3;
 let currentPage = 1;
 
+// Variables for topics filtering
+let selectedTopics = [];
+let isTopicsMenuOpen = false;
+
+// Function to extract unique topics from articles
+function getUniqueTopics() {
+    const topics = [];
+    articles.forEach(article => {
+        if (!topics.includes(article.category)) {
+            topics.push(article.category);
+        }
+    });
+    return topics;
+}
+
+// Function to toggle the topics menu
+function toggleTopicsMenu() {
+    isTopicsMenuOpen = !isTopicsMenuOpen;
+    const topicsMenu = document.getElementById('topics-menu');
+    
+    if (isTopicsMenuOpen) {
+        topicsMenu.style.display = 'block';
+        // Populate topics list if it's empty
+        populateTopicsList();
+    } else {
+        topicsMenu.style.display = 'none';
+    }
+}
+
+// Function to populate the topics list
+function populateTopicsList() {
+    const topicsList = document.getElementById('topics-list');
+    const uniqueTopics = getUniqueTopics();
+    
+    // Clear existing topics
+    topicsList.innerHTML = '';
+    
+    // Add each topic as a checkbox
+    uniqueTopics.forEach(topic => {
+        const topicItem = document.createElement('div');
+        topicItem.className = 'topic-item';
+        
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.id = `topic-${topic.replace(/\s+/g, '-').toLowerCase()}`;
+        checkbox.value = topic;
+        checkbox.checked = selectedTopics.includes(topic);
+        
+        const label = document.createElement('label');
+        label.htmlFor = checkbox.id;
+        label.textContent = topic;
+        
+        topicItem.appendChild(checkbox);
+        topicItem.appendChild(label);
+        topicsList.appendChild(topicItem);
+    });
+}
+
+// Function to apply topic filters
+function applyTopicFilters() {
+    // Get all checked topics
+    const checkedTopics = [];
+    const checkboxes = document.querySelectorAll('#topics-list input[type="checkbox"]:checked');
+    
+    checkboxes.forEach(checkbox => {
+        checkedTopics.push(checkbox.value);
+    });
+    
+    // Update selected topics
+    selectedTopics = checkedTopics;
+    
+    // Reset to first page
+    currentPage = 1;
+    
+    // Update topics button text
+    updateTopicsButtonText();
+    
+    // Close the topics menu
+    toggleTopicsMenu();
+    
+    // Display selected topics
+    displaySelectedTopics();
+    
+    // Refresh articles display
+    displayArticles(currentPage);
+    
+    // Update pagination
+    setupPagination(getFilteredArticles().length);
+}
+
+// Function to clear all topic filters
+function clearTopicFilters() {
+    // Uncheck all checkboxes
+    const checkboxes = document.querySelectorAll('#topics-list input[type="checkbox"]');
+    checkboxes.forEach(checkbox => {
+        checkbox.checked = false;
+    });
+    
+    // Clear selected topics
+    selectedTopics = [];
+    
+    // Reset to first page
+    currentPage = 1;
+    
+    // Update topics button text
+    updateTopicsButtonText();
+    
+    // Clear selected topics display
+    displaySelectedTopics();
+    
+    // Refresh articles display
+    displayArticles(currentPage);
+    
+    // Update pagination
+    setupPagination(articles.length);
+}
+
+// Function to update the topics button text
+function updateTopicsButtonText() {
+    const topicsBtn = document.getElementById('topics-btn');
+    
+    if (selectedTopics.length > 0) {
+        topicsBtn.textContent = `Topics (${selectedTopics.length})`;
+        topicsBtn.classList.add('active');
+    } else {
+        topicsBtn.textContent = 'Topics';
+        topicsBtn.classList.remove('active');
+    }
+}
+
+// Function to display selected topics as tags
+function displaySelectedTopics() {
+    const selectedTopicsDisplay = document.getElementById('selected-topics-display');
+    
+    // Clear existing content
+    selectedTopicsDisplay.innerHTML = '';
+    
+    // If no topics selected, hide the container
+    if (selectedTopics.length === 0) {
+        selectedTopicsDisplay.style.display = 'none';
+        return;
+    }
+    
+    // Show the container
+    selectedTopicsDisplay.style.display = 'flex';
+    
+    // Add "Filtered by:" text
+    const filterText = document.createElement('span');
+    filterText.className = 'filter-text';
+    filterText.textContent = 'Filtered by:';
+    selectedTopicsDisplay.appendChild(filterText);
+    
+    // Add each selected topic as a tag
+    selectedTopics.forEach(topic => {
+        const topicTag = document.createElement('div');
+        topicTag.className = 'topic-tag';
+        
+        const topicText = document.createElement('span');
+        topicText.textContent = topic;
+        
+        const removeBtn = document.createElement('button');
+        removeBtn.className = 'remove-topic';
+        removeBtn.innerHTML = '<i class="fas fa-times"></i>';
+        removeBtn.setAttribute('aria-label', `Remove ${topic} filter`);
+        removeBtn.addEventListener('click', () => removeTopic(topic));
+        
+        topicTag.appendChild(topicText);
+        topicTag.appendChild(removeBtn);
+        selectedTopicsDisplay.appendChild(topicTag);
+    });
+    
+    // Add "Clear all" button if multiple topics selected
+    if (selectedTopics.length > 1) {
+        const clearAllBtn = document.createElement('button');
+        clearAllBtn.className = 'clear-all-topics';
+        clearAllBtn.textContent = 'Clear all';
+        clearAllBtn.addEventListener('click', clearTopicFilters);
+        selectedTopicsDisplay.appendChild(clearAllBtn);
+    }
+}
+
+// Function to remove a single topic
+function removeTopic(topic) {
+    // Remove the topic from selected topics
+    selectedTopics = selectedTopics.filter(t => t !== topic);
+    
+    // Update topics button text
+    updateTopicsButtonText();
+    
+    // Update selected topics display
+    displaySelectedTopics();
+    
+    // Reset to first page
+    currentPage = 1;
+    
+    // Refresh articles display
+    displayArticles(currentPage);
+    
+    // Update pagination
+    setupPagination(getFilteredArticles().length);
+    
+    // Update checkboxes in the topics menu
+    const checkbox = document.getElementById(`topic-${topic.replace(/\s+/g, '-').toLowerCase()}`);
+    if (checkbox) {
+        checkbox.checked = false;
+    }
+}
+
+// Function to get filtered articles based on selected topics
+function getFilteredArticles() {
+    if (selectedTopics.length === 0) {
+        return articles;
+    }
+    
+    return articles.filter(article => selectedTopics.includes(article.category));
+}
+
 // Function to display the articles for the current page
 function displayArticles(page) {
     const articlesContainer = document.getElementById('articles-container');
-    articlesContainer.innerHTML = '';  // Clear existing articles
-
+    
+    // Clear existing articles
+    articlesContainer.innerHTML = '';
+    
+    // Get filtered articles
+    const filteredArticles = getFilteredArticles();
+    
     const startIndex = (page - 1) * articlesPerPage;
     const endIndex = startIndex + articlesPerPage;
-    const paginatedArticles = articles.slice(startIndex, endIndex);
+    const paginatedArticles = filteredArticles.slice(startIndex, endIndex);
 
-    // Show message if no articles (shouldn't happen with our data, but just in case)
+    // Show message if no articles
     if (paginatedArticles.length === 0) {
-        articlesContainer.innerHTML = '<div class="no-results"><h2>No articles found</h2></div>';
+        const noResults = document.createElement('div');
+        noResults.className = 'no-results';
+        
+        const heading = document.createElement('h2');
+        heading.textContent = 'No articles found';
+        
+        const message = document.createElement('p');
+        if (selectedTopics.length > 0) {
+            message.textContent = 'No articles match your selected topics. Try selecting different topics.';
+        } else {
+            message.textContent = 'No articles available.';
+        }
+        
+        const clearBtn = document.createElement('button');
+        clearBtn.className = 'back-btn';
+        clearBtn.textContent = 'Clear Filters';
+        clearBtn.addEventListener('click', clearTopicFilters);
+        
+        noResults.appendChild(heading);
+        noResults.appendChild(message);
+        
+        if (selectedTopics.length > 0) {
+            noResults.appendChild(clearBtn);
+        }
+        
+        articlesContainer.appendChild(noResults);
         return;
     }
 
@@ -173,7 +437,7 @@ function displayArticles(page) {
 
         // Create a link for each article
         const link = document.createElement('a');
-        link.href = `article.html?id=${startIndex + index}`; // Use index to pass article ID
+        link.href = `article.html?id=${articles.indexOf(article)}`; // Use index in the original array
         link.textContent = article.title;
         link.classList.add('article-link');
 
@@ -201,7 +465,7 @@ function displayArticles(page) {
 
         // Create read more link
         const readMore = document.createElement('a');
-        readMore.href = `article.html?id=${startIndex + index}`;
+        readMore.href = `article.html?id=${articles.indexOf(article)}`;
         readMore.textContent = 'Read more';
         readMore.classList.add('read-more');
 
@@ -220,21 +484,28 @@ function setupPagination(totalArticles) {
 
     const totalPages = Math.ceil(totalArticles / articlesPerPage);
 
-    // Add previous button
-    if (totalPages > 1) {
-        const prevButton = document.createElement('button');
-        prevButton.innerHTML = '<i class="fas fa-chevron-left"></i>';
-        prevButton.classList.add('pagination-btn', 'nav-btn');
-        prevButton.disabled = currentPage === 1;
-        prevButton.addEventListener('click', function() {
-            if (currentPage > 1) {
-                currentPage--;
-                displayArticles(currentPage);
-                setupPagination(articles.length);
-            }
-        });
-        paginationControls.appendChild(prevButton);
+    // Hide pagination if only one page or no results
+    if (totalPages <= 1) {
+        paginationControls.style.display = 'none';
+        return;
     }
+    
+    // Show pagination
+    paginationControls.style.display = 'flex';
+
+    // Add previous button
+    const prevButton = document.createElement('button');
+    prevButton.innerHTML = '<i class="fas fa-chevron-left"></i>';
+    prevButton.classList.add('pagination-btn', 'nav-btn');
+    prevButton.disabled = currentPage === 1;
+    prevButton.addEventListener('click', function() {
+        if (currentPage > 1) {
+            currentPage--;
+            displayArticles(currentPage);
+            setupPagination(getFilteredArticles().length);
+        }
+    });
+    paginationControls.appendChild(prevButton);
 
     // Add page number buttons
     for (let i = 1; i <= totalPages; i++) {
@@ -245,26 +516,24 @@ function setupPagination(totalArticles) {
         button.addEventListener('click', function() {
             currentPage = i;
             displayArticles(currentPage);
-            setupPagination(articles.length);  // Re-setup pagination to refresh active state
+            setupPagination(getFilteredArticles().length);  // Re-setup pagination to refresh active state
         });
         paginationControls.appendChild(button);
     }
 
     // Add next button
-    if (totalPages > 1) {
-        const nextButton = document.createElement('button');
-        nextButton.innerHTML = '<i class="fas fa-chevron-right"></i>';
-        nextButton.classList.add('pagination-btn', 'nav-btn');
-        nextButton.disabled = currentPage === totalPages;
-        nextButton.addEventListener('click', function() {
-            if (currentPage < totalPages) {
-                currentPage++;
-                displayArticles(currentPage);
-                setupPagination(articles.length);
-            }
-        });
-        paginationControls.appendChild(nextButton);
-    }
+    const nextButton = document.createElement('button');
+    nextButton.innerHTML = '<i class="fas fa-chevron-right"></i>';
+    nextButton.classList.add('pagination-btn', 'nav-btn');
+    nextButton.disabled = currentPage === totalPages;
+    nextButton.addEventListener('click', function() {
+        if (currentPage < totalPages) {
+            currentPage++;
+            displayArticles(currentPage);
+            setupPagination(getFilteredArticles().length);
+        }
+    });
+    paginationControls.appendChild(nextButton);
 }
 
 // Theme toggle functionality
@@ -301,27 +570,26 @@ function setupThemeToggle() {
 function setupSearch() {
     const searchInput = document.getElementById('search-input');
     const searchButton = document.getElementById('search-button');
-    const paginationControls = document.getElementById('pagination-controls');
     let isSearchActive = false;
-    let filteredArticles = [];
+    let searchResults = [];
     
     // Function to perform search
     function performSearch() {
         const query = searchInput.value.toLowerCase().trim();
         
         if (query === '') {
-            // If search is empty, show all articles
+            // If search is empty, show all articles (respecting topic filters)
             isSearchActive = false;
-            filteredArticles = [];
+            searchResults = [];
             currentPage = 1; // Reset to first page
             displayArticles(currentPage);
-            setupPagination(articles.length);
-            paginationControls.style.display = 'flex'; // Show pagination
+            setupPagination(getFilteredArticles().length);
             return;
         }
         
-        // Filter articles based on search query
-        filteredArticles = articles.filter(article => {
+        // Filter articles based on search query and selected topics
+        const filteredArticles = getFilteredArticles();
+        searchResults = filteredArticles.filter(article => {
             return (
                 article.title.toLowerCase().includes(query) ||
                 article.summary.toLowerCase().includes(query) ||
@@ -334,17 +602,23 @@ function setupSearch() {
         currentPage = 1; // Reset to first page when searching
         
         // Display search results
-        displaySearchResults(filteredArticles);
+        displaySearchResults(searchResults);
     }
     
     // Function to display search results
     function displaySearchResults(results) {
         const articlesContainer = document.getElementById('articles-container');
-        articlesContainer.innerHTML = '';  // Clear existing articles
+        const selectedTopicsDisplay = document.getElementById('selected-topics-display');
+        
+        // Preserve the selected topics display
+        const topicsDisplayHTML = selectedTopicsDisplay.outerHTML;
+        
+        // Clear existing articles
+        articlesContainer.innerHTML = topicsDisplayHTML;
         
         // Show message if no results found
         if (results.length === 0) {
-            articlesContainer.innerHTML = `
+            articlesContainer.innerHTML += `
                 <div class="no-results">
                     <h2>No results found</h2>
                     <p>Try different keywords or browse all articles</p>
@@ -358,7 +632,7 @@ function setupSearch() {
             });
             
             // Hide pagination for no results
-            paginationControls.style.display = 'none';
+            document.getElementById('pagination-controls').style.display = 'none';
             return;
         }
         
@@ -440,6 +714,7 @@ function setupSearch() {
     
     // Function to set up pagination for search results
     function setupSearchPagination(totalResults) {
+        const paginationControls = document.getElementById('pagination-controls');
         paginationControls.innerHTML = '';  // Clear existing pagination buttons
         
         const totalPages = Math.ceil(totalResults / articlesPerPage);
@@ -460,7 +735,7 @@ function setupSearch() {
         prevButton.addEventListener('click', function() {
             if (currentPage > 1) {
                 currentPage--;
-                displaySearchResults(filteredArticles);
+                displaySearchResults(searchResults);
             }
         });
         paginationControls.appendChild(prevButton);
@@ -473,7 +748,7 @@ function setupSearch() {
             if (i === currentPage) button.classList.add('active');  // Highlight current page
             button.addEventListener('click', function() {
                 currentPage = i;
-                displaySearchResults(filteredArticles);
+                displaySearchResults(searchResults);
             });
             paginationControls.appendChild(button);
         }
@@ -486,7 +761,7 @@ function setupSearch() {
         nextButton.addEventListener('click', function() {
             if (currentPage < totalPages) {
                 currentPage++;
-                displaySearchResults(filteredArticles);
+                displaySearchResults(searchResults);
             }
         });
         paginationControls.appendChild(nextButton);
@@ -509,12 +784,38 @@ function setupSearch() {
     });
 }
 
-// Add setupSearch to the initial load
+// Initialize everything when the DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
+    // Set up event listeners for topics menu
+    document.getElementById('topics-btn').addEventListener('click', function(e) {
+        e.preventDefault();
+        toggleTopicsMenu();
+    });
+    
+    document.getElementById('apply-topics').addEventListener('click', applyTopicFilters);
+    document.getElementById('clear-topics').addEventListener('click', clearTopicFilters);
+    
+    // Close topics menu when clicking outside
+    document.addEventListener('click', function(e) {
+        const topicsMenu = document.getElementById('topics-menu');
+        const topicsBtn = document.getElementById('topics-btn');
+        
+        if (isTopicsMenuOpen && 
+            !topicsMenu.contains(e.target) && 
+            e.target !== topicsBtn && 
+            !topicsBtn.contains(e.target)) {
+            toggleTopicsMenu();
+        }
+    });
+    
+    // Initialize the page
     displayArticles(currentPage);  // Load the first page of articles
     setupPagination(articles.length);  // Setup pagination based on total articles
     setupThemeToggle();  // Setup theme toggle functionality
     setupSearch();  // Setup search functionality
+    
+    // Hide topics menu initially
+    document.getElementById('topics-menu').style.display = 'none';
 });
 </script>
 
